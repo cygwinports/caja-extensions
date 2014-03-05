@@ -1,0 +1,30 @@
+inherit mate
+
+NAME="caja-extensions"
+VERSION=1.8.0
+RELEASE=1
+CATEGORY="MATE"
+SUMMARY="Extensions for MATE file manager"
+DESCRIPTION="MATE is a fork of the GNOME 2 desktop. It provides an intuitive
+and attractive desktop to Linux users using traditional metaphors."
+
+PATCH_URI="1.8.0-sendto-plugins.patch"
+
+PKG_NAMES="${NAME} ${NAME}-devel"
+caja_extensions_OBSOLETES="mate-file-manager-image-converter mate-file-manager-open-terminal mate-file-manager-sendto"
+caja_extensions_REQUIRES="ImageMagick mate-terminal"
+caja_extensions_CONTENTS="etc/postinstall/ usr/bin/ usr/lib/caja-sendto/
+	usr/lib/caja/ usr/share/MateConf/ usr/share/${NAME}/ usr/share/doc/
+	usr/share/glib-2.0/schemas/ usr/share/locale/ usr/share/man/man1/"
+caja_extensions_devel_CONTENTS="usr/include/caja-sendto/ usr/lib/pkgconfig/
+	usr/share/gtk-doc/html/"
+
+CYGCONF_ARGS="
+	--enable-image-converter
+	--enable-open-terminal
+	--enable-sendto
+	--disable-share
+	--disable-gksu
+"
+
+MAKEOPTS+=" LDFLAGS=-no-undefined"

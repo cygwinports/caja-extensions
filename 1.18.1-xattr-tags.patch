@@ -1,0 +1,13 @@
+https://github.com/mate-desktop/caja-extensions/issues/29
+
+--- origsrc/caja-extensions-1.18.1/xattr-tags/caja-xattr-tags-extension.c	2017-03-30 09:19:02.000000000 -0500
++++ src/caja-extensions-1.18.1/xattr-tags/caja-xattr-tags-extension.c	2017-05-01 11:52:18.219172800 -0500
+@@ -101,7 +101,7 @@ static gchar *caja_xattr_tags_get_xdg_ta
+     GFile *location;
+     GFileInfo *info;
+ 
+-    uri = caja_file_get_activation_uri (file);
++    uri = caja_file_info_get_activation_uri (file);
+     location = g_file_new_for_uri (uri);
+     info = g_file_query_info (location,
+                               G_FILE_ATTRIBUTE_XATTR_XDG_TAGS,

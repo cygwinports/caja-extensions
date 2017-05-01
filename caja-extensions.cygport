@@ -1,14 +1,14 @@
 inherit mate
 
 NAME="caja-extensions"
-VERSION=1.16.0
+VERSION=1.18.1
 RELEASE=1
 CATEGORY="MATE"
 SUMMARY="Extensions for MATE file manager"
 DESCRIPTION="MATE is a fork of the GNOME 2 desktop. It provides an intuitive
 and attractive desktop to Linux users using traditional metaphors."
 
-#PATCH_URI="1.10.0-sendto-plugins.patch"
+PATCH_URI="1.18.1-xattr-tags.patch"
 
 PKG_NAMES="${NAME} ${NAME}-devel"
 caja_extensions_OBSOLETES="mate-file-manager-image-converter mate-file-manager-open-terminal mate-file-manager-sendto"
